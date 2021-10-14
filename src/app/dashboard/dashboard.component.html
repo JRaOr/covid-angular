@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="card">
+        <h3>Confirmed</h3>
+        <p class="blue">{{cases?.confirmed}}</p>
+    </div>
+    <div class="card">
+        <h3>Deaths</h3>
+        <p class="red">{{cases?.deaths}}</p>
+    </div>
+    <div class="card">
+        <h3>Recovered</h3>
+        <p class="white">{{cases?.recovered}}</p>
+    </div>
+    <a class="link" routerLink='/list'>General Detail View</a>
+</div>
+<div class="content">
+    <div class="card">
+        <h3>Details by Continent</h3>
+    </div>
+    <div *ngIf='continents'>
+        <div *ngFor='let continent of continents'>
+            <a [routerLink]="['/region', continent.code]">{{continent.name}}</a>
+        </div>
+    </div>
+</div>
