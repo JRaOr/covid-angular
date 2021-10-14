@@ -1,0 +1,55 @@
+<div class="content" >
+    <div class="detail-title">
+        <h3>Title</h3>
+        <button>Back</button>
+    </div>
+    <form action="">
+        <input name='date' type="date" min="2020-01-22" [max]="todayISOString" [(ngModel)]='dateSelected'/>
+    </form>
+    <div *ngIf='searchedDate'>
+        <p>{{searchedDate.date}}</p>
+        <p>{{searchedDate.confirmed}}</p>
+        <p>{{searchedDate.deaths}}</p>
+        <p>{{searchedDate.recovered}}</p>
+    </div>
+    <form action="">
+        <input name='datemin' type="date" min="2020-01-22" value="2020-01-22"  [max]="todayISOString" [(ngModel)]='periodDateMin'/>
+        <input name='datemax' type="date" [min]="periodDateMin" [max]="todayISOString" [(ngModel)]='periodDateMax'/>
+    </form>
+    <select id="cars" [value]="25" (change)="changeFn($event.target)">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <div *ngFor='let pg of pages'>
+        <button (click)='changePage($event.target)' [id]='pg'>{{pg}}</button>
+    </div>
+    <div class="table-container">
+        <table >
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Confirmed</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let country of paginatedCases'>
+                    <td>
+                        {{country.date}}
+                    </td>
+                    <td>
+                        {{country.confirmed}}
+                    </td>
+                    <td>
+                        {{country.deaths}}
+                    </td>
+                    <td>
+                        {{country.recovered}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
