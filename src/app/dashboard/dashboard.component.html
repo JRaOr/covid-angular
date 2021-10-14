@@ -12,6 +12,7 @@
         <p class="white">{{cases?.recovered}}</p>
     </div>
     <a class="link" routerLink='/list'>General Detail View</a>
+    <button (click)='showForm()' type="button">Suscripción</button>
 </div>
 <div class="content">
     <div class="card">
@@ -22,4 +23,49 @@
             <a [routerLink]="['/region', continent.code]">{{continent.name}}</a>
         </div>
     </div>
+</div>
+
+<div *ngIf='showFormState' class="form-container">
+    <div *ngIf='popupState' class="form-container">
+        <div class="popup">
+            <p>Muchas gracias <strong>{{subscription.value.name | uppercase}}</strong> por suscribirte a nuestro servicio.</p>
+            <p>Recibirás información al correo <strong>{{subscription.value.email}}</strong>.</p>
+            <button (click)='finishSub()' class="cerrar">Cerrar</button>
+        </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="subscription" class="form">
+        <h2>Subscripcion</h2>
+        <div>
+            <label>Nombre:</label>
+            <input 
+                type="text"
+                placeholder="Name"
+                formControlName="name"
+                />
+        </div>
+        <div>
+            <label>Fecha de nacimiento:</label>
+            <input 
+                type="date"
+                formControlName="date"
+                />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input 
+                type="email"
+                placeholder="Email"
+                formControlName="email"
+                />
+        </div>
+        <div *ngIf="errosState" class="alert" >
+            <div *ngFor='let error of formErrors'>
+                <p>{{error}}</p>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="suscribir">Suscribir</button>
+            <button (click)='showForm()' class='cancelar'>Cancelar</button>
+        </div>
+    </form>
 </div>

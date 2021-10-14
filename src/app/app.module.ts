@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { RouterModule } from '@angular/router';
 import { RegionComponent } from './region/region.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     HomeModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: DashboardComponent},
       {path: 'region/:id', component: RegionComponent}
