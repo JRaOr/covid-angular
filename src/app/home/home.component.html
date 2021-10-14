@@ -1,0 +1,45 @@
+<div class="content" *ngIf='filteredCases'>
+    <h1>Data by country</h1>
+    <div class="search-container">
+        <label>Country Search</label>
+        <input type="text" [(ngModel)]='countryFilter'/>
+    </div>
+    <select id="cars" [value]="10" (change)="changeFn($event.target)">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+    </select>
+    <table>
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Confirmed</th>
+                <th>Deaths</th>
+                <th>Recovered</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let country of paginatedCases'>
+                <td>
+                    <img *ngIf='country.countrycode' style="width: 30px;" [src]='country.image'/>
+                </td>
+                <td>
+                    <a *ngIf='country.countrycode' [routerLink]="['/list', country.countrycode['iso2']]">{{country.countryregion}}</a>
+                    <a *ngIf='!country.countrycode'>{{country.countryregion}}</a>
+                </td>
+                <td>
+                    {{country.confirmed}}
+                </td>
+                <td>
+                    {{country.deaths}}
+                </td>
+                <td>
+                    {{country.recovered}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngFor='let pg of pages'>
+        <button (click)='changePage($event.target)' [id]='pg'>{{pg}}</button>
+    </div>
+</div>
