@@ -1,16 +1,55 @@
+$breakpoint-tablet: 768px
+    
+.content-dashboard
+    max-width: 1200px
+    width: 90vw
+    margin-top: 2vh
+    background-color: white
+    padding: 10px
+    display: grid
+    grid-template-columns: 80%
+    align-items: center
+    justify-content: center
+    border-radius: 10px
+    gap: 20px
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px
+    @media (min-width: $breakpoint-tablet)
+        grid-template-columns: 40% 40%        
+
+
 .card
     width: 100%
+    height: 10vh
     display: flex
     flex-direction: column
     align-items: center
+    h3
+        color: #524a4a
+        font-size: 20px
     p
         font-size: 50px
+.card-links
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-around
+    height: 10vh
+    button
+        background-color: #EA6A47
+        font-size: 15px
+        border-radius: 5px
+        color: white
+        padding: 5px
+        border: 2px solid #ce3d15
+        cursor: pointer
+        &:hover
+            background-color: #f14617
 .blue
     color: #2088b8
 .red
     color: #b3241a
 .white
-    color: #ffffffb0
+    color: #11b979
 
 .link
     color: #1780e2
@@ -106,3 +145,20 @@
     &:hover
         background-color: #5e35b1
         border: 2px solid #311b92
+.continent-container
+    width: 100%
+    display: grid
+    justify-content: center
+    align-items: center
+    grid-template-columns: 30% 30% 30%
+    gap: 3%
+    margin-top: 20px
+
+.continent-card
+    width: 100%
+    border: 2px solid #1fad7e
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+    min-height: 300px

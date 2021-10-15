@@ -54,8 +54,9 @@ export class HomeComponent implements OnInit {
   }
 
   changeFn(newvalue: any): void{
-    this.paginationRange = newvalue.value
+    this.paginationRange = parseInt(newvalue.value)
     this.pages = []
+    this.page = 1
     for (let index = 1; index < (this.filteredCases.length / this.paginationRange); index++) {
       this.pages.push(index)
     }
