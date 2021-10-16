@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content-dashboard">
     <div class="card">
         <h3>Confirmed</h3>
         <p class="blue">{{cases?.confirmed}}</p>
@@ -11,19 +11,19 @@
         <h3>Recovered</h3>
         <p class="white">{{cases?.recovered}}</p>
     </div>
-    <a class="link" routerLink='/list'>General Detail View</a>
-    <button (click)='showForm()' type="button">Suscripción</button>
-</div>
-<div class="content">
-    <div class="card">
-        <h3>Details by Continent</h3>
+    <div class="card-links">
+        <a class="link" routerLink='/list'>General Detail View</a>
+        <button (click)='showForm()' type="button">Suscripción</button>
     </div>
-    <div *ngIf='continents'>
-        <div *ngFor='let continent of continents'>
+</div>
+<!-- <div class="content">
+    <h3>Details by Continent</h3>
+    <div class="continent-container" *ngIf='continents'>
+        <div class="continent-card" *ngFor='let continent of continents'>
             <a [routerLink]="['/region', continent.code]">{{continent.name}}</a>
         </div>
     </div>
-</div>
+</div> -->
 
 <div *ngIf='showFormState' class="form-container">
     <div *ngIf='popupState' class="form-container">

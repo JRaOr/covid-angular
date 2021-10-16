@@ -122,8 +122,9 @@ export class DetailComponent implements OnInit {
   }
 
   changeFn(value: any){
-    this.paginationRange = value.value
+    this.paginationRange = parseInt(value.value)
     this.pages = []
+    this.page = 1
     for (let index = 1; index < (this.filteredCases.length / this.paginationRange); index++) {
       this.pages.push(index)
     }

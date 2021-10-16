@@ -9,16 +9,15 @@
         <option value="25">25</option>
         <option value="50">50</option>
     </select>
-    <table>
-        <thead>
-            <tr>
+    <div class="table-container">
+        <table class="table">
+            <tr class="table-top">
+                <th>Flag</th>
                 <th>Country</th>
                 <th>Confirmed</th>
                 <th>Deaths</th>
                 <th>Recovered</th>
             </tr>
-        </thead>
-        <tbody>
             <tr *ngFor='let country of paginatedCases'>
                 <td>
                     <img *ngIf='country.countrycode' style="width: 30px;" [src]='country.image'/>
@@ -37,9 +36,11 @@
                     {{country.recovered}}
                 </td>
             </tr>
-        </tbody>
-    </table>
-    <div *ngFor='let pg of pages'>
-        <button (click)='changePage($event.target)' [id]='pg'>{{pg}}</button>
+        </table>
+    </div>
+    <div class="pagination">
+        <div *ngFor='let pg of pages'>
+            <button (click)='changePage($event.target)' [id]='pg'>{{pg}}</button>
+        </div>
     </div>
 </div>
